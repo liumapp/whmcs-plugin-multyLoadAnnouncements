@@ -8,6 +8,28 @@
  * Time: 5:39 PM
  */
 
+
+if (!defined("WHMCS")) {
+    die("This file cannot be accessed directly");
+}
+
+function classLoadMultyAnnouncement ($class)
+{
+    $path = str_replace('\\', DIRECTORY_SEPARATOR, $class);
+    $path = str_replace('WHMCS' . DIRECTORY_SEPARATOR . 'Module' . DIRECTORY_SEPARATOR . 'Addon' . DIRECTORY_SEPARATOR . 'MultyLoadAnnouncement' , 'lib' , $path);
+    $file = __DIR__ . DIRECTORY_SEPARATOR . $path . '.php';
+    if (file_exists($file)) {
+        require_once $file;
+    }
+}
+
+spl_autoload_register('classLoadMultyAnnouncement');
+
+use WHMCS\Module\Addon\MultyLoadAnnouncement\Admin\AdminDispatcher;
+
+/**
+ * @return array
+ */
 function addonmodule_config()
 {
     return array(
@@ -27,3 +49,50 @@ function addonmodule_config()
     );
 }
 
+/**
+ * @return array
+ */
+function addonmodule_activate()
+{
+    return array(
+        'status' => 'success', // Supported values here include: success, error or info
+        'description' => 'Load Success !',
+    );
+}
+
+/**
+ * @return array
+ */
+function addonmodule_deactivate()
+{
+    // Undo any database and schema modifications made by your module here
+    return array(
+        'status' => 'success', // Supported values here include: success, error or info
+        'description' => 'Delete Success !',
+    );
+}
+
+/**
+ *
+ * @param $vars
+ * @return string
+ */
+function addonmodule_sidebar($vars)
+{
+    // Get common module parameters
+    $sidebar = '<p>You are now under the Multy Load Announcement Module!</p>';
+    return $sidebar;
+}
+
+/**
+ * @param $vars
+ */
+function addonmodule_output($vars)
+{
+
+    $action = isset($_REQUEST['action']) ? $_REQUEST['action'] : '';
+
+    $dispatcher = new AdminDispatcher();
+    $response = $dispatcher->dispatch($action, $vars);
+    echo $response;
+}
