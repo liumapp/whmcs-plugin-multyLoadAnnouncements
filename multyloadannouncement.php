@@ -30,7 +30,7 @@ use WHMCS\Module\Addon\MultyLoadAnnouncement\Admin\AdminDispatcher;
 /**
  * @return array
  */
-function addonmodule_config()
+function multyloadannouncement_config()
 {
     return array(
         'name' => 'Multy Load Announcement', // Display name for your module
@@ -52,7 +52,7 @@ function addonmodule_config()
 /**
  * @return array
  */
-function addonmodule_activate()
+function multyloadannouncement_activate()
 {
     return array(
         'status' => 'success', // Supported values here include: success, error or info
@@ -63,7 +63,7 @@ function addonmodule_activate()
 /**
  * @return array
  */
-function addonmodule_deactivate()
+function multyloadannouncement_deactivate()
 {
     // Undo any database and schema modifications made by your module here
     return array(
@@ -77,7 +77,7 @@ function addonmodule_deactivate()
  * @param $vars
  * @return string
  */
-function addonmodule_sidebar($vars)
+function multyloadannouncement_sidebar($vars)
 {
     // Get common module parameters
     $sidebar = '<p>You are now under the Multy Load Announcement Module!</p>';
@@ -87,7 +87,7 @@ function addonmodule_sidebar($vars)
 /**
  * @param $vars
  */
-function addonmodule_output($vars)
+function multyloadannouncement_output($vars)
 {
 
     $action = isset($_REQUEST['action']) ? $_REQUEST['action'] : '';
