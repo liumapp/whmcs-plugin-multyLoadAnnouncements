@@ -3,14 +3,11 @@ A whmcs addon module , which significance is load multy announcements
 
 ### 如何使用
 
-1. 将要批量移入的文章导出成csv文件，请注意，我们只需要date,annoucement,title三个字段的内容，具体可以参考data.csv的文件格式。（如何导出csv文件并没有在本项目中有所包含）
+1. 将要批量移入的文章导出成csv文件，请注意，我们只需要date,annoucement,title三个字段（并且这三个字段的顺序请不要打乱）的内容，具体可以参考data.csv的文件格式。（如何导出csv文件并没有在本项目中有所包含）
 
 2. 在系统后台域名后添加如下参数/whmcs/admin/addonmodules.php?module=multyloadannouncement进入模块页面。
 
 3. 安装插件后上传csv文件，并点击提交即可自动导入。
-
-
-
 
 ### 配置说明
 
