@@ -19,7 +19,23 @@ class Controller
     public function index ($vars)
     {
 
-        
+        $isPublished = $vars['isPublished'];
+
+        if ($isPublished == 'on') {
+            $isPublished = 1;
+        } else {
+            $isPublished = 0;
+        }
+
+
+        var_dump($vars);
+
+        return <<< EOT
+
+            
+
+EOT;
+
 
     }
 

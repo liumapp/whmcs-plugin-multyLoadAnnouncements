@@ -41,9 +41,7 @@ function multyloadannouncement_config()
         'fields' => array(
             'isPublished' => array(
                 'FriendlyName' => '是否立即发布',
-                'Type' => 'radio',
-                'Options' => '不发布,发布',
-
+                'Type' => 'yesno',
             ),
         )
     );
